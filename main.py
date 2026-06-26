@@ -4,6 +4,19 @@ from PySide6.QtUiTools import QUiLoader
 
 #importing the database
 import inventory
+import os
+import sys
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temporary folder and stores its path in sys._MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        # If running normally via python main.py, look in the current folder
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 def main():
     #To start the application engine
@@ -11,7 +24,7 @@ def main():
 
     #1. To load UI file which we made in Pyside6
     loader = QUiLoader()
-    window = loader.load("pos_design.ui")
+    window = loader.load(resource_path("pos_design.ui"))
 
     #2. To set up a running total variable to keep track of the math
     window.running_total = 0.0

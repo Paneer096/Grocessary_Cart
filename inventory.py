@@ -4,7 +4,8 @@
 items_database = {
     "1001": {"name":"Bread", "price": 20},
     "1002": {"name":"milk",  "price": 30},
-    "1003": {"name":"banana", "price":60}    
+    "1003": {"name":"banana", "price":60},
+    "1004": {"name":"pen",    "price":10}
     }
 
 def get_item(barcode):
